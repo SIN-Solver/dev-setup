@@ -18,6 +18,7 @@ Da sich lokale Entwicklung und Cloud-Hosting grundlegend unterscheiden, ist die 
 | :--- | :--- | :--- |
 | **💻 Lokal (macOS)** | [`macOS-dev-setup.md`](./macOS-dev-setup.md) | Leitfaden für die Einrichtung eines lokalen Apple-Rechners (Intel/Silicon) inkl. Homebrew, VS Code und Kernwerkzeugen. |
 | **☁️ Cloud (OCI)** | [`OCI-dev-setup.md`](./OCI-dev-setup.md) | Leitfaden für die Einrichtung einer *Oracle Cloud Infrastructure* Ubuntu-VM, fokussiert auf Headless-Betrieb, Docker und Remote-SSH. |
+| **🐙 GitHub Guides** | [`github/README.md`](./github/README.md) | Interne Leitfäden für Profil, Organization, Projects, Discussions und Collaboration auf GitHub. |
 
 ---
 
