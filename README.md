@@ -34,7 +34,7 @@ Da sich lokale Entwicklung und Cloud-Hosting grundlegend unterscheiden, ist die 
 
 1. Klone dieses Repository auf dein lokales System oder deinen Server:
    ```bash
-   git clone [https://github.com/DEIN-GITHUB-NAME/dev-setup.git](https://github.com/DEIN-GITHUB-NAME/dev-setup.git)
+   git clone https://github.com/OpenSIN-AI/dev-setup.git
    cd dev-setup
    ```
 2. Öffne die für dein System relevante Markdown-Datei.
@@ -42,6 +42,17 @@ Da sich lokale Entwicklung und Cloud-Hosting grundlegend unterscheiden, ist die 
 
 ---
 
+## 🔗 OpenSIN-AI Ökosystem
+
+- **Organisation:** https://github.com/OpenSIN-AI
+- **Setup & Guides:** https://github.com/OpenSIN-AI/dev-setup
+- **Dokumentation:** https://github.com/OpenSIN-AI/documentation
+- **Website:** https://opensin.pages.dev
+
+---
+
 ## 🤝 Beitragende
 
 Wenn du Tools hinzufügen oder Config-Anpassungen vorschlagen möchtest, öffne gerne einen Pull Request oder erstelle ein Issue.
+
+Lies vorher die [Contributing Guidelines](https://github.com/OpenSIN-AI/.github/blob/main/CONTRIBUTING.md) und den [GitHub Collaboration Guide](./github/github-collaboration-readme.md).
