@@ -20,22 +20,22 @@ Ein gutes Profil ist also kein Lebenslauf in Markdown, sondern eine **klare Land
 
 Das Profil von `steipete` wirkt stark, weil es nicht zufällig geschrieben ist. Es folgt ein sehr klares Muster:
 
-1. **Klare Identität direkt in den ersten Zeilen**  
+1. **Klare Identität direkt in den ersten Zeilen**
    Man versteht sofort, wer die Person ist, wie sie sich positioniert und warum das Profil interessant ist.
 
-2. **Starke Verdichtung statt langer Erklärung**  
+2. **Starke Verdichtung statt langer Erklärung**
    Wenige Zeilen transportieren sehr viel: Rolle, Fokus, Energie, bisherige Erfolge.
 
-3. **Aktuelle Projekte stehen im Mittelpunkt**  
+3. **Aktuelle Projekte stehen im Mittelpunkt**
    Nicht nur Vergangenheit, sondern sichtbare Gegenwart. Das Profil lebt.
 
-4. **Proof statt Behauptung**  
+4. **Proof statt Behauptung**
    Repos, Tools, Websites, Talks, Artikel und sichtbare Outputs erzeugen Vertrauen.
 
-5. **Persönlichkeit ohne Kitsch**  
+5. **Persönlichkeit ohne Kitsch**
    Das Profil hat Stimme, Stil und Wiedererkennungswert.
 
-6. **Gute Link-Architektur**  
+6. **Gute Link-Architektur**
    Besucher wissen schnell, wo sie als Nächstes klicken sollen.
 
 Die wichtigste Lehre für OpenSIN-Mitglieder ist deshalb:
