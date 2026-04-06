@@ -1,35 +1,110 @@
 # OpenCode CLI — Docker Setup
 
-## Befehl 1: Einmalig (nur 1x pro Mac/VM)
+## Docker installieren
 
-Repo holen, Binary laden, Image bauen. Fertig.
+Stelle sicher, dass Docker Desktop auf deinem Mac M1 installiert und läuft.
 
-```bash
-rm -rf ~/Infra-SIN-Dev-Setup && git clone https://github.com/OpenSIN-AI/Infra-SIN-Dev-Setup.git && cd Infra-SIN-Dev-Setup/opencode-docker-build && chmod +x download-binary.sh && ./download-binary.sh && docker build -t oc .
+## Dockerfile erstellen
+
+Erstelle eine neue Datei namens `Dockerfile` in einem leeren Verzeichnis auf deinem Mac mit folgendem Inhalt:
+
+```dockerfile
+FROM alpine AS base
+
+# Installiere notwendige Abhängigkeiten, einschließlich git und curl für gh cli
+# Deaktiviert den Laufzeit-Transpiler-Cache in Docker-Containern standardmäßig.
+# Bei kurzlebigen Containern ist der Cache nicht nützlich
+ARG BUN_RUNTIME_TRANSPILER_CACHE_PATH=0
+ENV BUN_RUNTIME_TRANSPILER_CACHE_PATH=${BUN_RUNTIME_TRANSPILER_CACHE_PATH}
+RUN apk add --no-cache libgcc libstdc++ ripgrep git curl bash
+
+# Installiere GitHub CLI
+RUN apk add --no-cache github-cli
+
+FROM base AS build-amd64
+COPY dist/opencode-linux-x64-baseline-musl/bin/opencode /usr/local/bin/opencode
+
+FROM base AS build-arm64
+COPY dist/opencode-linux-arm64-musl/bin/opencode /usr/local/bin/opencode
+
+ARG TARGETARCH
+FROM build-${TARGETARCH}
+RUN opencode --version
+ENTRYPOINT ["opencode"]
 ```
 
-## Befehl 2: Neue Maschine erstellen + öffnen
+## OpenCode Binary herunterladen
 
-```bash
-docker volume create oc-1-data && docker run -it -v oc-1-data:/root/.local/share/opencode --name oc-1 --entrypoint bash oc
+Lade das OpenCode Binary für Linux ARM64 von der OpenCode Releases-Seite herunter. Suche die Datei, die `opencode-linux-arm64-musl` im Namen hat, entpacke sie und platziere das opencode Binary in einem Unterverzeichnis `dist/opencode-linux-arm64-musl/bin/` relativ zu deinem Dockerfile.
+
+Dein Verzeichnis sollte dann so aussehen:
+
+```
+.
+├── Dockerfile
+└── dist/
+    └── opencode-linux-arm64-musl/
+        └── bin/
+            └── opencode
 ```
 
-Nummer hochzählen: `oc-2-data` / `oc-2`, `oc-3-data` / `oc-3`, ...
-
-## Bestehende Maschine wieder öffnen
+Oder nutze das mitgelieferte Script:
 
 ```bash
-docker start -i oc-1
+chmod +x download-binary.sh
+./download-binary.sh
 ```
 
----
+## Docker Image bauen
 
-## Was ist im Image?
+Öffne dein Terminal, navigiere zu dem Verzeichnis, in dem sich dein Dockerfile befindet, und führe den folgenden Befehl aus:
 
-- **OpenCode CLI** v1.3.17 (native musl binary)
-- **GitHub CLI**
-- **oh-my-opencode** v3.11.2 → Subagenten: explore, librarian, etc.
-- **opencode-antigravity-auth** v1.6.5-beta.0
-- **opencode.json** mit qwen3.6-plus-free als Standardmodell
+```bash
+docker build --platform linux/arm64 -t opencode-cli-gh-m1 .
+```
 
-Jeder Container = eigenes Volume = eigene Identität = kein shared rate limit.
+Der Image-Name ist hier `opencode-cli-gh-m1`.
+
+## Docker Container starten und OpenCode CLI verwenden
+
+### a. Einmalige Nutzung (Daten gehen nach Beenden verloren)
+
+```bash
+docker run -it opencode-cli-gh-m1 bash
+```
+
+Innerhalb des Containers kannst du dann `opencode --version` und `gh --version` ausführen, um die Installation zu überprüfen.
+
+### b. Nutzung mit persistenten, aber isolierten Daten (empfohlen für separate "Maschinen")
+
+Um sicherzustellen, dass jeder deiner "OpenCode CLI Maschinen"-Container eigene, separate ID-Daten hat, aber diese Daten auch über das Beenden des Containers hinaus bestehen bleiben, erstelle für jeden Container ein eigenes, benanntes Docker-Volume.
+
+**Für deinen ersten Container:**
+
+```bash
+docker volume create opencode-machine-1-data
+docker run -it -v opencode-machine-1-data:/root/.local/share/opencode --name opencode-machine-1 opencode-cli-gh-m1 bash
+```
+
+**Für einen zweiten, komplett separaten Container:**
+
+```bash
+docker volume create opencode-machine-2-data
+docker run -it -v opencode-machine-2-data:/root/.local/share/opencode --name opencode-machine-2 opencode-cli-gh-m1 bash
+```
+
+Jeder Container (`opencode-machine-1`, `opencode-machine-2` usw.) wird sein eigenes, dediziertes Volume (`opencode-machine-1-data`, `opencode-machine-2-data`) verwenden, um OpenCode-spezifische Daten zu speichern. Dadurch sind die Installationen vollständig voneinander isoliert, obwohl sie dasselbe Basis-Image verwenden.
+
+## OpenCode CLI Standardmodell setzen
+
+Um das Standardmodell in der OpenCode CLI auf `opencode/qwen3.6-plus-free` zu setzen, musst du dies innerhalb des laufenden Docker-Containers tun. OpenCode speichert seine Konfiguration in einer `opencode.json` Datei.
+
+Nachdem du den Container gestartet hast (z.B. `docker run -it opencode-cli-gh-m1 bash`), führe im Container folgenden Befehl aus:
+
+```bash
+opencode config set model opencode/qwen3.6-plus-free
+```
+
+Dies setzt das Standardmodell für die OpenCode CLI innerhalb dieses spezifischen Containers. Jede deiner separaten "Maschinen" (Container mit eigenen Volumes) würde dieses Modell standardmäßig verwenden, wenn du den Befehl entsprechend ausführst.
+
+Zusätzlich zum Modell kannst du auch andere Provider (Anbieter) verbinden. Die Provider-Informationen werden vom globalen Synchronisierungs-Kontext abgerufen.
