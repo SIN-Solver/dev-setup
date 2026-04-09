@@ -42,6 +42,12 @@ Da sich lokale Entwicklung und Cloud-Hosting grundlegend unterscheiden, ist die 
 
 ---
 
+## ⚡ OpenCode Custom Stack
+
+Für Entwickler, die den **weltbesten OpenCode Setup** (identisch mit dem Main-Developer MacBook) nutzen möchten, gibt es den upgraded Stack:
+👉 **[Delqhi/upgraded-opencode-stack](https://github.com/Delqhi/upgraded-opencode-stack)**
+
+
 ## 🔗 OpenSIN-AI Ökosystem
 
 - **Organisation:** https://github.com/OpenSIN-AI
