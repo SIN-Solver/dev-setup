@@ -5,7 +5,7 @@
     "onFailure": "/Users/jeremy/dev/Infra-SIN-Dev-Setup/.opencode/hooks/pcpm-after-run.sh"
   },
   "pcpm": {
-    "brainRepoPath": "/Users/jeremy/dev/Infra-SIN-Dev-Setup",
+    "brainRepoPath": "/Users/jeremy/dev/global-brain",
     "projectId": "Infra-SIN-Dev-Setup",
     "goalId": "default-goal",
     "goalDescription": "Continue development",
