@@ -1,0 +1,122 @@
+{
+  "generatedAt": "2026-04-14T15:36:54.561Z",
+  "entries": [
+    {
+      "id": "rule-fc78ee2f-f738-4792-bf42-0b6dcba3e0af",
+      "type": "rule",
+      "text": "Always validate JWT + Refresh Token in auth flows",
+      "topic": "auth-validation",
+      "status": "active",
+      "scope": "global",
+      "score": 1,
+      "tags": [],
+      "source": {
+        "projectId": "login-api",
+        "goalId": "fix-login-bug",
+        "sessionId": "session-1775993302601",
+        "sourceType": "execution"
+      },
+      "rationale": null,
+      "createdAt": "2026-04-12T11:28:22.656Z",
+      "updatedAt": "2026-04-12T11:28:22.656Z",
+      "invalidatedBy": [],
+      "invalidates": [],
+      "replacesTopic": false,
+      "driftStatus": "fresh",
+      "driftReasons": [],
+      "lastValidatedAt": "2026-04-12T11:28:22.656Z",
+      "ageDays": 0
+    },
+    {
+      "id": "rule-c7ca0adb-6328-4697-a9f1-a032fa36c37f",
+      "type": "rule",
+      "text": "Always validate JWT + Refresh Token in auth flows",
+      "topic": "auth-validation",
+      "status": "active",
+      "scope": "global",
+      "score": 1,
+      "tags": [],
+      "source": {
+        "projectId": "login-api",
+        "goalId": "fix-login-bug",
+        "sessionId": "session-1775993312260",
+        "sourceType": "execution"
+      },
+      "rationale": null,
+      "createdAt": "2026-04-12T11:28:32.310Z",
+      "updatedAt": "2026-04-12T11:28:32.310Z",
+      "invalidatedBy": [],
+      "invalidates": [],
+      "replacesTopic": false,
+      "driftStatus": "fresh",
+      "driftReasons": [],
+      "lastValidatedAt": "2026-04-12T11:28:32.310Z",
+      "ageDays": 0
+    },
+    {
+      "id": "rule-7d8f3d5f-5a6e-4cdb-97db-8a7e0dcf4d90",
+      "type": "rule",
+      "text": "All future create-flow based automation must inherit from OpenSIN-AI/SIN-InkogniFlow as the canonical runtime; do not build divergent flow runtimes outside that base.",
+      "topic": "create-flow-canonical-runtime",
+      "status": "active",
+      "scope": "global",
+      "score": 1,
+      "tags": [
+        "create-flow",
+        "SIN-InkogniFlow",
+        "canonical"
+      ],
+      "source": {
+        "projectId": "opensin-flow-stack",
+        "goalId": "canonicalize-create-flow",
+        "sessionId": "session-20260413-create-flow-canonical",
+        "sourceType": "execution"
+      },
+      "rationale": "Prevents agent drift and incompatible flow implementations across repos.",
+      "createdAt": "2026-04-13T02:32:00.000Z",
+      "updatedAt": "2026-04-13T02:32:00.000Z",
+      "invalidatedBy": [],
+      "invalidates": [],
+      "replacesTopic": false,
+      "driftStatus": "fresh",
+      "driftReasons": [],
+      "lastValidatedAt": "2026-04-13T02:32:00.000Z",
+      "ageDays": 0
+    },
+    {
+      "id": "rule-dl9a2c4f-8b3e-4d1a-a5f6-1c7e3db82f01",
+      "type": "rule",
+      "text": "SIN-InkogniFlow Dual-Logger is the canonical human-to-agent recording system: all workflow recording must use sin-flow record-dual (OS logger via pynput + browser logger via JS injection → Flask merge server on :5000 → agent_workflow_master.json). Replay must use sin-flow replay with Bézier mouse curves, Gaussian jitter, and CDP/pyautogui/hybrid modes. Never build alternative recording pipelines.",
+      "topic": "dual-logger-architecture",
+      "status": "active",
+      "scope": "global",
+      "score": 1,
+      "tags": [
+        "Dual-Logger",
+        "SIN-InkogniFlow",
+        "create-flow",
+        "recording",
+        "anti-bot",
+        "Bézier-curve",
+        "pynput",
+        "CDP"
+      ],
+      "source": {
+        "projectId": "SIN-InkogniFlow",
+        "goalId": "dual-logger-architecture",
+        "sessionId": "session-20260413-dual-logger-build",
+        "sourceType": "execution"
+      },
+      "rationale": "Provides structured machine-readable JSON workflow logs that combine OS-level and browser-level events with anti-bot replay countermeasures.",
+      "createdAt": "2026-04-13T13:00:00.000Z",
+      "updatedAt": "2026-04-13T13:00:00.000Z",
+      "invalidatedBy": [],
+      "invalidates": [],
+      "replacesTopic": false,
+      "driftStatus": "fresh",
+      "driftReasons": [],
+      "lastValidatedAt": "2026-04-13T13:00:00.000Z",
+      "ageDays": 0
+    }
+  ]
+}

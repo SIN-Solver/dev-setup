@@ -1,0 +1,9 @@
+{
+  "goalId": "default-goal",
+  "revision": 1,
+  "status": "active",
+  "strategy": "initial-discovery",
+  "openSteps": [],
+  "latestDecisions": [],
+  "openIssues": []
+}

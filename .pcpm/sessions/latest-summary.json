@@ -1,0 +1,16 @@
+{
+  "sessionId": null,
+  "projectId": null,
+  "goalId": null,
+  "messageCount": 0,
+  "lastUserMessage": null,
+  "lastAssistantMessage": null,
+  "currentStrategy": null,
+  "openIssueCount": 0,
+  "invalidatedEntries": [],
+  "addedKnowledge": [],
+  "reflectionSummary": null,
+  "reflectionQualityScore": null,
+  "reflectionSuggestions": [],
+  "updatedAt": null
+}
