@@ -1,0 +1,11 @@
+[Unit]
+Description=Run OCI space guardian periodically
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1h
+Persistent=true
+AccuracySec=10min
+
+[Install]
+WantedBy=timers.target

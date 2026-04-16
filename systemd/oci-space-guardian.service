@@ -1,0 +1,8 @@
+[Unit]
+Description=OCI space guardian cleanup
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/oci-space-guardian.sh
