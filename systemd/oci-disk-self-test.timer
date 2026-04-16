@@ -1,0 +1,12 @@
+[Unit]
+Description=Run OCI disk protection self-test daily
+
+[Timer]
+OnBootSec=20min
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=30m
+AccuracySec=5m
+
+[Install]
+WantedBy=timers.target

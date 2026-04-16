@@ -1,0 +1,8 @@
+[Unit]
+Description=Daily OCI disk protection self-test
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/oci-disk-self-test.sh
