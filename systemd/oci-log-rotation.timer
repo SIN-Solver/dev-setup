@@ -1,0 +1,12 @@
+[Unit]
+Description=Run OCI log rotation daily
+
+[Timer]
+OnBootSec=15min
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=15m
+AccuracySec=1m
+
+[Install]
+WantedBy=timers.target

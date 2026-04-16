@@ -1,0 +1,7 @@
+[Unit]
+Description=OCI log rotation and journald vacuum
+After=systemd-journald.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/oci-log-rotation.sh

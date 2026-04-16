@@ -7,7 +7,7 @@
 #   verbose logging. Part of the BUG-OCI-001 prevention stack.
 #
 # SCHEDULE:
-#   Daily via cron at 03:00 UTC.
+#   Daily via systemd timer (`oci-log-rotation.timer`).
 #
 # ROTATION POLICY:
 #   - syslog: keep 7 days
@@ -15,8 +15,8 @@
 #   - old kern.log: compress and keep 7 days
 #
 # DEPLOYMENT:
-#   Install as /etc/cron.daily/oci-log-rotation on OCI VM.
-#   Make executable: chmod +x /etc/cron.daily/oci-log-rotation
+#   Install as /usr/local/bin/oci-log-rotation.sh and activate
+#   `oci-log-rotation.service` + `oci-log-rotation.timer`.
 # ============================================================
 
 set -euo pipefail
