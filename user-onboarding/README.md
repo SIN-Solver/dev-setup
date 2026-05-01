@@ -97,10 +97,10 @@ OpenSIN uses **Box.com** (10 GB free) as primary cloud storage, replacing GitLab
 
 ### Storage Layout
 
-| Folder | Purpose | Sharing |
-|--------|---------|---------|
+| Folder            | Purpose                                   | Sharing                       |
+| ----------------- | ----------------------------------------- | ----------------------------- |
 | `/OpenSIN-Public` | Logos, images, docs (publicly accessible) | "People with link" → Can view |
-| `/OpenSIN-Cache` | Logs, cache, temporary files | "People with link" → Can view |
+| `/OpenSIN-Cache`  | Logs, cache, temporary files              | "People with link" → Can view |
 
 ### User Onboarding Flow
 
@@ -182,13 +182,13 @@ OpenSIN-onboarding/
 
 ## Supported Platforms (Auto-Registration)
 
-| Platform | Free Tier | What OpenSIN Uses It For |
-|----------|-----------|--------------------------|
+| Platform         | Free Tier                                                    | What OpenSIN Uses It For                       |
+| ---------------- | ------------------------------------------------------------ | ---------------------------------------------- |
 | **Google Cloud** | $300 credit + always-free Secret Manager (6 active versions) | Passwordmanager backend (Google Cloud Secrets) |
-| **Groq** | 14,400 req/day (vision models) | OpenSIN Bridge vision analysis |
-| **NVIDIA NIM** | 1,000 free API calls/month | Specialized AI models (Qwen, Cosmos) |
-| **Hugging Face** | Unlimited free CPU Spaces | A2A agent hosting |
-| **GitHub** | Unlimited public repos | Code hosting, Issues, A2A coordination |
+| **Groq**         | 14,400 req/day (vision models)                               | OpenSIN Bridge vision analysis                 |
+| **NVIDIA NIM**   | 1,000 free API calls/month                                   | Specialized AI models (Qwen, Cosmos)           |
+| **Hugging Face** | Unlimited free CPU Spaces                                    | A2A agent hosting                              |
+| **GitHub**       | Unlimited public repos                                       | Code hosting, Issues, A2A coordination         |
 
 ## How Autonomous Registration Works
 
@@ -201,6 +201,7 @@ OpenSIN uses the **Two-Layer Browser Stack** (nodriver + CDP) to:
 5. Store keys in Passwordmanager (Google Cloud Secrets)
 
 The user only needs to provide:
+
 - **Email address** (for account registration)
 - **Google account** (for GCP + Chrome profile)
 
@@ -216,13 +217,13 @@ Everything else is fully autonomous.
 
 ## Related Repositories
 
-| Repository | Purpose |
-|-----------|---------|
-| [OpenSIN-backend](https://github.com/OpenSIN-AI/OpenSIN-backend) | A2A-SIN-Passwordmanager source code |
+| Repository                                                                   | Purpose                              |
+| ---------------------------------------------------------------------------- | ------------------------------------ |
+| [OpenSIN-backend](https://github.com/OpenSIN-AI/OpenSIN-backend)             | A2A-SIN-Passwordmanager source code  |
 | [OpenSIN-documentation](https://github.com/OpenSIN-AI/OpenSIN-documentation) | Full platform docs (docs.opensin.ai) |
-| [OpenSIN-overview](https://github.com/OpenSIN-AI/OpenSIN-overview) | Organization SSOT registry |
-| [OpenSIN](https://github.com/OpenSIN-AI/OpenSIN) | Core platform |
-| [OpenSIN-Code](https://github.com/OpenSIN-AI/OpenSIN-Code) | CLI tool |
+| [OpenSIN-overview](https://github.com/OpenSIN-AI/OpenSIN-overview)           | Organization SSOT registry           |
+| [OpenSIN](https://github.com/OpenSIN-AI/OpenSIN)                             | Core platform                        |
+| [OpenSIN-Code](https://github.com/OpenSIN-AI/OpenSIN-Code)                   | CLI tool                             |
 
 ## License
 

@@ -81,12 +81,12 @@
 
 ## Voraussetzungen
 
-| Anforderung | Details |
-|:---|:---|
-| **macOS Version** | macOS 13 (Ventura) oder höher |
-| **Hardware** | Apple Silicon (M1/M2/M3/M4) oder Intel Mac |
-| **Rechte** | Administrator-Zugang (sudo) |
-| **Internet** | Aktive Verbindung für Downloads |
+| Anforderung       | Details                                    |
+| :---------------- | :----------------------------------------- |
+| **macOS Version** | macOS 13 (Ventura) oder höher              |
+| **Hardware**      | Apple Silicon (M1/M2/M3/M4) oder Intel Mac |
+| **Rechte**        | Administrator-Zugang (sudo)                |
+| **Internet**      | Aktive Verbindung für Downloads            |
 
 > [!NOTE]
 > Apple Silicon (M1-M4) Macs sind empfohlen — bessere Performance für Node.js/n8n Workflows und Docker (Apple Silicon Build).
@@ -102,18 +102,18 @@
 
 Dieses Setup installiert folgende Tools:
 
-| Tool | Version | Beschreibung | Link |
-|:---|:---|:---|:---|
-| **Homebrew** | Latest | Paketmanager für macOS | [brew.sh](https://brew.sh) |
-| **Git** | 2.40+ | Versionskontrolle | [git-scm.com](https://git-scm.com) |
-| **gh CLI** | 2.60+ | GitHub CLI für PRs, Issues, Repos | [cli.github.com](https://cli.github.com) |
-| **Node.js** | 22 LTS | JavaScript Runtime | [nodejs.org](https://nodejs.org) |
-| **Bun** | 1.2+ | Schneller Package Manager (NICHT npm!) | [bun.sh](https://bun.sh) |
-| **Python** | 3.13 | Programmiersprache | [python.org](https://www.python.org) |
-| **Docker Desktop** | Latest | Container Runtime für lokale Tests | [docker.com](https://docker.com) |
-| **VS Code** | Latest | Code Editor | [code.visualstudio.com](https://code.visualstudio.com) |
-| **iTerm2** | Latest | Terminal Alternative (optional aber empfohlen) | [iterm2.com](https://iterm2.com) |
-| **Raycast** | Latest | Spotlight Alternative (optional) | [raycast.com](https://raycast.com) |
+| Tool               | Version | Beschreibung                                   | Link                                                   |
+| :----------------- | :------ | :--------------------------------------------- | :----------------------------------------------------- |
+| **Homebrew**       | Latest  | Paketmanager für macOS                         | [brew.sh](https://brew.sh)                             |
+| **Git**            | 2.40+   | Versionskontrolle                              | [git-scm.com](https://git-scm.com)                     |
+| **gh CLI**         | 2.60+   | GitHub CLI für PRs, Issues, Repos              | [cli.github.com](https://cli.github.com)               |
+| **Node.js**        | 22 LTS  | JavaScript Runtime                             | [nodejs.org](https://nodejs.org)                       |
+| **Bun**            | 1.2+    | Schneller Package Manager (NICHT npm!)         | [bun.sh](https://bun.sh)                               |
+| **Python**         | 3.13    | Programmiersprache                             | [python.org](https://www.python.org)                   |
+| **Docker Desktop** | Latest  | Container Runtime für lokale Tests             | [docker.com](https://docker.com)                       |
+| **VS Code**        | Latest  | Code Editor                                    | [code.visualstudio.com](https://code.visualstudio.com) |
+| **iTerm2**         | Latest  | Terminal Alternative (optional aber empfohlen) | [iterm2.com](https://iterm2.com)                       |
+| **Raycast**        | Latest  | Spotlight Alternative (optional)               | [raycast.com](https://raycast.com)                     |
 
 > [!IMPORTANT]
 > **BUN STATT NPM!** npm ist permanent verbannt — es frisst 4-6 GB RAM und wird vom OOM-Killer gekillt. Nutze IMMER `bun install` und `bun run`!
@@ -121,12 +121,12 @@ Dieses Setup installiert folgende Tools:
 <details>
 <summary>Warum Bun statt npm?</summary>
 
-| Kriterium | npm | Bun |
-|:---|:---|:---|
-| RAM-Verbrauch | 4-6 GB | ~500 MB |
-| Install-Geschwindigkeit | Langsam | 10-50x schneller |
-| OOM-Killer | Häufig | Selten |
-| Lock-File | package-lock.json | bun.lockb |
+| Kriterium               | npm               | Bun              |
+| :---------------------- | :---------------- | :--------------- |
+| RAM-Verbrauch           | 4-6 GB            | ~500 MB          |
+| Install-Geschwindigkeit | Langsam           | 10-50x schneller |
+| OOM-Killer              | Häufig            | Selten           |
+| Lock-File               | package-lock.json | bun.lockb        |
 
 </details>
 
@@ -152,12 +152,14 @@ xcode-select --install
 ```
 
 **Apple Silicon (M1/M2/M3/M4)额外 Schritt:**
+
 ```bash
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 **Intel Mac:**
+
 ```bash
 echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/usr/local/bin/brew shellenv)"
@@ -177,6 +179,7 @@ brew install --cask docker
 
 > [!TIP]
 > Nach Docker Installation: Docker Desktop einmal starten und einloggen. Alternativ für Apple Silicon: **OrbStack** nutzen (schneller und ressourceneffizienter):
+>
 > ```bash
 > brew install --cask orbstack
 > ```
@@ -189,6 +192,7 @@ brew install --cask visual-studio-code
 
 > [!TIP]
 > VS Code Extensions für OpenSIN-Stack:
+>
 > - `ms-python.python` (Python)
 > - `esbenp.prettier-vscode` (Formatierung)
 > - `github.copilot` (AI Copilot)
@@ -304,10 +308,10 @@ Für Browser Automation (Prolific, Surveys, etc.) werden Chrome Profile benötig
 
 ### Profil-Verzeichnis
 
-| Profil | Email | Verwendung | Dokumentation |
-|:---|:---|:---|:---|
-| **Geschäftlich** | info@zukunftsorientierte-energie.de | Admin Console, Domain-Wide Delegation | [admin-profiles](./dev/docs/chrome/admin-profiles/) |
-| **Default** | zukunftsorientierte.energie@gmail.com | Privat — NIEMALS für Admin! | [private-profiles](./dev/docs/chrome/private-profiles/) |
+| Profil           | Email                                 | Verwendung                            | Dokumentation                                           |
+| :--------------- | :------------------------------------ | :------------------------------------ | :------------------------------------------------------ |
+| **Geschäftlich** | info@zukunftsorientierte-energie.de   | Admin Console, Domain-Wide Delegation | [admin-profiles](./dev/docs/chrome/admin-profiles/)     |
+| **Default**      | zukunftsorientierte.energie@gmail.com | Privat — NIEMALS für Admin!           | [private-profiles](./dev/docs/chrome/private-profiles/) |
 
 ### Chrome Profile Verzeichnis
 
@@ -426,11 +430,13 @@ brew install python@3.13 # wenn brew verfügbar
 ### Docker Alternativen
 
 **OrbStack** (schneller auf Apple Silicon):
+
 ```bash
 brew install --cask orbstack
 ```
 
 **Lima** (open-source, leicht):
+
 ```bash
 brew install lima
 limactl start default
@@ -455,17 +461,17 @@ limactl start default
 
 ## Troubleshooting
 
-| Problem | Lösung |
-|:---|:---|
-| `brew: command not found` | Homebrew nicht im PATH — Terminal neu starten oder `eval "$(brew shellenv)"` |
-| `xcode-select: error: command line tools are already installed` | Kein Problem — bereits installiert |
-| `permission denied` bei Homebrew | `sudo chown -R $(whoami) /usr/local/share/zsh` oder `/opt/homebrew` |
-| GitHub Push verlangt Passwort | SSH Key nutzen statt HTTPS — `git remote set-url origin git@github.com:user/repo.git` |
-| VS Code "command not found" | VS Code → Command Palette → "Shell Command: Install 'code' command in PATH" |
-| Python Version zu alt | `brew install python@3.13` und alten Symlink aktualisieren |
-| Docker startet nicht | Docker Desktop starten und einloggen, oder `brew services restart docker` |
-| gh auth login funktioniert nicht | `gh auth status` prüfen, ggf. `gh auth logout` und erneut einloggen |
-| `bun: command not found` nach Neustart | `export BUN_INSTALL="$HOME/.bun"` und `export PATH="$BUN_INSTALL/bin:$PATH"` in ~/.zshrc |
+| Problem                                                         | Lösung                                                                                   |
+| :-------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+| `brew: command not found`                                       | Homebrew nicht im PATH — Terminal neu starten oder `eval "$(brew shellenv)"`             |
+| `xcode-select: error: command line tools are already installed` | Kein Problem — bereits installiert                                                       |
+| `permission denied` bei Homebrew                                | `sudo chown -R $(whoami) /usr/local/share/zsh` oder `/opt/homebrew`                      |
+| GitHub Push verlangt Passwort                                   | SSH Key nutzen statt HTTPS — `git remote set-url origin git@github.com:user/repo.git`    |
+| VS Code "command not found"                                     | VS Code → Command Palette → "Shell Command: Install 'code' command in PATH"              |
+| Python Version zu alt                                           | `brew install python@3.13` und alten Symlink aktualisieren                               |
+| Docker startet nicht                                            | Docker Desktop starten und einloggen, oder `brew services restart docker`                |
+| gh auth login funktioniert nicht                                | `gh auth status` prüfen, ggf. `gh auth logout` und erneut einloggen                      |
+| `bun: command not found` nach Neustart                          | `export BUN_INSTALL="$HOME/.bun"` und `export PATH="$BUN_INSTALL/bin:$PATH"` in ~/.zshrc |
 
 > [!WARNING]
 > Bei OOM-Kill (Process killed): **NIEMALS npm nutzen!** Immer `bun install` verwenden! npm frisst 4-6 GB RAM.

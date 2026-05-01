@@ -36,12 +36,12 @@ The `gcloud` backend stores each secret as a Google Cloud Secret Manager resourc
 
 The Passwordmanager authenticates via a GCP service account:
 
-| Field | Value |
-|-------|-------|
-| **Account** | `opensin-agent@{project}.iam.gserviceaccount.com` |
-| **Role** | `roles/secretmanager.admin` |
-| **Key file** | `~/.config/opencode/auth/google/service-account.json` |
-| **Permissions** | `600` (owner read/write only) |
+| Field           | Value                                                 |
+| --------------- | ----------------------------------------------------- |
+| **Account**     | `opensin-agent@{project}.iam.gserviceaccount.com`     |
+| **Role**        | `roles/secretmanager.admin`                           |
+| **Key file**    | `~/.config/opencode/auth/google/service-account.json` |
+| **Permissions** | `600` (owner read/write only)                         |
 
 ### Key Rotation
 
@@ -99,9 +99,9 @@ The catalog at `~/.config/sin/sin-passwordmanager/catalog.json` stores **metadat
 
 ## Troubleshooting
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| `Invalid JWT Signature` | SA key was rotated/revoked on Google's side | Follow key rotation steps above |
-| `PERMISSION_DENIED` | SA lacks `secretmanager.admin` role | Re-run `gcloud projects add-iam-policy-binding` |
-| `Secret not found` | Secret doesn't exist in GCP | Create with `secret.put` action |
-| `undefined` output | Wrong action name (e.g., `set` instead of `secret.put`) | Use full action name: `sin.passwordmanager.secret.put` |
+| Error                   | Cause                                                   | Fix                                                    |
+| ----------------------- | ------------------------------------------------------- | ------------------------------------------------------ |
+| `Invalid JWT Signature` | SA key was rotated/revoked on Google's side             | Follow key rotation steps above                        |
+| `PERMISSION_DENIED`     | SA lacks `secretmanager.admin` role                     | Re-run `gcloud projects add-iam-policy-binding`        |
+| `Secret not found`      | Secret doesn't exist in GCP                             | Create with `secret.put` action                        |
+| `undefined` output      | Wrong action name (e.g., `set` instead of `secret.put`) | Use full action name: `sin.passwordmanager.secret.put` |

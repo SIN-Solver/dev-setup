@@ -39,6 +39,7 @@ Dieses Repository dokumentiert das Setup für eine **OCI Always Free Compute Ins
    - Keine automatische Abrechnung solange du die Always-Free-Limits einhältst
 
 **Häufige Fehler bei der Registrierung:**
+
 - ❌ Falsche Telefonnummer → Oracle kann nicht verifizieren → Konto gesperrt
 - ❌ Virtuelle/Prepaid-Karten → oft abgelehnt → echte Karte verwenden
 - ❌ Home Region nachträglich ändern → **unmöglich!** Nur einmal bei Erstellung wählbar
@@ -126,12 +127,12 @@ ssh -i ~/.ssh/oci_key ubuntu@<VM_IP>
 
 ### Quick-Reference: Always-Free Limits für A1.Flex
 
-| Ressource | Always-Free-Limit |
-|-----------|-------------------|
-| OCPUs | 4 |
-| RAM | 24 GB |
-| Boot Volume | 50 GB |
-| Traffic Out | 10 TB/Monat |
+| Ressource   | Always-Free-Limit |
+| ----------- | ----------------- |
+| OCPUs       | 4                 |
+| RAM         | 24 GB             |
+| Boot Volume | 50 GB             |
+| Traffic Out | 10 TB/Monat       |
 
 Solange du innerhalb dieser Limits bleibst → **kostenlos, solange du willst**.
 
@@ -139,13 +140,13 @@ Solange du innerhalb dieser Limits bleibst → **kostenlos, solange du willst**.
 
 ### Troubleshooting
 
-| Problem | Lösung |
-|---------|--------|
+| Problem                        | Lösung                                                         |
+| ------------------------------ | -------------------------------------------------------------- |
 | "Out of capacity" in Frankfurt | Alle 3 ADs durchprobieren (AD1→AD2→AD3), oder PAYGO-Workaround |
-| Karte wird abgelehnt | Echte Kredit/Debitkarte nutzen, keine Prepaid |
-| Kein SMS-Code erhalten | Anruf statt SMS anfordern bei der Verifizierung |
-| $100 werden abgebucht | Temporär — wird nach ~7 Tagen freigegeben |
-| Instance startet nicht | OCI Status prüfen → ggf. andere AD oder Region versuchen |
+| Karte wird abgelehnt           | Echte Kredit/Debitkarte nutzen, keine Prepaid                  |
+| Kein SMS-Code erhalten         | Anruf statt SMS anfordern bei der Verifizierung                |
+| $100 werden abgebucht          | Temporär — wird nach ~7 Tagen freigegeben                      |
+| Instance startet nicht         | OCI Status prüfen → ggf. andere AD oder Region versuchen       |
 
 ---
 
@@ -153,13 +154,13 @@ Solange du innerhalb dieser Limits bleibst → **kostenlos, solange du willst**.
 
 Folgende Kernkomponenten werden auf dem Linux-Server installiert:
 
-| Tool | Kategorie | Beschreibung | Installationsmethode |
-| :--- | :--- | :--- | :--- |
-| **[APT](https://ubuntu.com/)** | Paketmanager | Der Standard-Paketmanager für Ubuntu/Debian-basierte Systeme. | *Vorinstalliert* |
-| **[Git](https://git-scm.com/)** | Versionskontrolle | Tracking von Code-Änderungen auf dem Server. | `apt` |
-| **[Python 3](https://www.python.org/)** | Sprache | Oft vorinstalliert, wird inklusive `pip` (Package Installer) eingerichtet. | `apt` |
-| **[Node.js](https://nodejs.org/)** | Runtime | JavaScript-Laufzeitumgebung (via NodeSource für aktuelle Versionen). | `apt` |
-| **[Docker](https://www.docker.com/)** | Containerization | Industrie-Standard für das Ausführen von isolierten Cloud-Anwendungen. | `apt` |
+| Tool                                    | Kategorie         | Beschreibung                                                               | Installationsmethode |
+| :-------------------------------------- | :---------------- | :------------------------------------------------------------------------- | :------------------- |
+| **[APT](https://ubuntu.com/)**          | Paketmanager      | Der Standard-Paketmanager für Ubuntu/Debian-basierte Systeme.              | _Vorinstalliert_     |
+| **[Git](https://git-scm.com/)**         | Versionskontrolle | Tracking von Code-Änderungen auf dem Server.                               | `apt`                |
+| **[Python 3](https://www.python.org/)** | Sprache           | Oft vorinstalliert, wird inklusive `pip` (Package Installer) eingerichtet. | `apt`                |
+| **[Node.js](https://nodejs.org/)**      | Runtime           | JavaScript-Laufzeitumgebung (via NodeSource für aktuelle Versionen).       | `apt`                |
+| **[Docker](https://www.docker.com/)**   | Containerization  | Industrie-Standard für das Ausführen von isolierten Cloud-Anwendungen.     | `apt`                |
 
 ---
 
@@ -182,6 +183,7 @@ sudo apt autoremove -y
 Nun installieren wir die eigentlichen Entwicklungswerkzeuge.
 
 ### Git & Python
+
 Git und die grundlegenden Python-Werkzeuge installieren:
 
 ```bash
@@ -189,6 +191,7 @@ sudo apt install git python3 python3-pip python3-venv -y
 ```
 
 ### Node.js & NPM (LTS Version)
+
 Die in Ubuntu enthaltene Node.js-Version ist oft veraltet. Wir nutzen das offizielle NodeSource-Repository für die aktuelle LTS (Long Term Support) Version:
 
 ```bash
@@ -200,6 +203,7 @@ sudo apt install -y nodejs
 ```
 
 ### Docker & Docker Compose
+
 Für eine moderne Cloud-Entwicklung ist Docker unverzichtbar:
 
 ```bash
@@ -219,6 +223,7 @@ sudo usermod -aG docker $USER
 Wir installieren **kein** VS Code auf dem Server! Stattdessen nutzt du dein lokales VS Code auf dem Mac, um direkt auf dem Server zu programmieren.
 
 **Schritte auf deinem lokalen Mac:**
+
 1. Öffne VS Code.
 2. Installiere die Erweiterung **"Remote - SSH"** (von Microsoft).
 3. Klicke unten links auf das grüne Icon (`><`) und wähle **"Connect to Host..."**.
@@ -232,10 +237,12 @@ Wir installieren **kein** VS Code auf dem Server! Stattdessen nutzt du dein loka
 Oracle Cloud hat ein zweistufiges Firewall-System. Wenn du z.B. einen Webserver auf Port `8080` oder `3000` startest, musst du ihn an zwei Stellen freigeben:
 
 ### 1. In der OCI Web-Konsole (Ingress Rules)
-* Navigiere zu: *Networking > Virtual Cloud Networks > [Dein VCN] > Security List*
-* Füge eine neue **Ingress Rule** hinzu (Source: `0.0.0.0/0`, Destination Port: `Dein Port`).
+
+- Navigiere zu: _Networking > Virtual Cloud Networks > [Dein VCN] > Security List_
+- Füge eine neue **Ingress Rule** hinzu (Source: `0.0.0.0/0`, Destination Port: `Dein Port`).
 
 ### 2. Auf dem Server (iptables)
+
 Ubuntu auf OCI nutzt standardmäßig strenge `iptables`-Regeln. Um z.B. Port 3000 für Node.js freizugeben, führe auf dem Server aus:
 
 ```bash
@@ -275,6 +282,7 @@ All hardening scripts are source-controlled in `Infra-SIN-Dev-Setup/scripts/` an
 ```
 
 **systemd unit:**
+
 - Timer: `runner-cleanup.timer` — fires every 5 minutes
 - Service: `runner-cleanup.service` — runs the cleanup script
 
@@ -290,6 +298,7 @@ All hardening scripts are source-controlled in `Infra-SIN-Dev-Setup/scripts/` an
 ```
 
 **systemd unit:**
+
 - Timer: `oci-space-guardian.timer` — fires every 1 hour
 - Service: `oci-space-guardian.service`
 
@@ -307,10 +316,12 @@ All hardening scripts are source-controlled in `Infra-SIN-Dev-Setup/scripts/` an
 ```
 
 **systemd unit:**
+
 - Timer: `oci-emergency-disk-guard.timer` — fires every 5 minutes
 - Service: `oci-emergency-disk-guard.service`
 
 **Emergency recovery:** If all services are stopped, run on OCI:
+
 ```bash
 sudo systemctl start a2a-sin-code-backend a2a-sin-code-command a2a-sin-code-frontend a2a-sin-code-fullstack a2a-sin-code-plugin a2a-sin-code-tool
 ```
@@ -327,6 +338,7 @@ sudo systemctl start a2a-sin-code-backend a2a-sin-code-command a2a-sin-code-fron
 ```
 
 **Permanent journald limits** (deployed as drop-in):
+
 ```ini
 # /etc/systemd/journald.conf.d/90-oci-limits.conf
 SystemMaxUse=200M
@@ -336,6 +348,7 @@ MaxRetentionSec=7day
 ```
 
 **systemd unit:**
+
 - Timer: `oci-log-rotation.timer` — fires daily
 - Service: `oci-log-rotation.service`
 
@@ -357,6 +370,7 @@ MaxRetentionSec=7day
 ```
 
 **systemd unit:**
+
 - Timer: `oci-disk-self-test.timer` — fires daily at 03:00
 - Service: `oci-disk-self-test.service`
 

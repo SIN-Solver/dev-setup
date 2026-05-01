@@ -11,13 +11,13 @@ Die Idee ist einfach:
 
 ## Empfohlene Reihenfolge
 
-| Guide | Zweck |
-| :--- | :--- |
-| [`github-profil-readme.md`](./github-profil-readme.md) | starkes persönliches GitHub-Profil aufbauen |
-| [`github-organization-readme.md`](./github-organization-readme.md) | verstehen, was eine GitHub Organization ist und wie wir sie nutzen |
-| [`github-project-readme.md`](./github-project-readme.md) | GitHub Projects als operative Steuerungsfläche nutzen |
-| [`github-discussions-readme.md`](./github-discussions-readme.md) | Discussions sinnvoll für Ideen, Fragen und Austausch einsetzen |
-| [`github-collaboration-readme.md`](./github-collaboration-readme.md) | Issues, Branches, PRs und Reviews sauber nutzen |
+| Guide                                                                | Zweck                                                              |
+| :------------------------------------------------------------------- | :----------------------------------------------------------------- |
+| [`github-profil-readme.md`](./github-profil-readme.md)               | starkes persönliches GitHub-Profil aufbauen                        |
+| [`github-organization-readme.md`](./github-organization-readme.md)   | verstehen, was eine GitHub Organization ist und wie wir sie nutzen |
+| [`github-project-readme.md`](./github-project-readme.md)             | GitHub Projects als operative Steuerungsfläche nutzen              |
+| [`github-discussions-readme.md`](./github-discussions-readme.md)     | Discussions sinnvoll für Ideen, Fragen und Austausch einsetzen     |
+| [`github-collaboration-readme.md`](./github-collaboration-readme.md) | Issues, Branches, PRs und Reviews sauber nutzen                    |
 
 ## Lernpfad für neue Teammitglieder
 

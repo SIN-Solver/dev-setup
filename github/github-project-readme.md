@@ -92,24 +92,24 @@ So bleibt alles verbunden:
 
 ### Beispiel-Felder
 
-| Feld | Zweck |
-| :--- | :--- |
-| `Status` | aktueller Arbeitsstand |
-| `Priority` | Wichtigkeit |
-| `Type` | Art der Aufgabe |
-| `Owner` | verantwortliche Person |
-| `Area` | Produkt- oder Themenbereich |
-| `Target` | Sprint, Meilenstein oder Release |
+| Feld       | Zweck                            |
+| :--------- | :------------------------------- |
+| `Status`   | aktueller Arbeitsstand           |
+| `Priority` | Wichtigkeit                      |
+| `Type`     | Art der Aufgabe                  |
+| `Owner`    | verantwortliche Person           |
+| `Area`     | Produkt- oder Themenbereich      |
+| `Target`   | Sprint, Meilenstein oder Release |
 
 ### Beispiel-Views
 
-| View | Zweck |
-| :--- | :--- |
-| `Backlog` | ungeplante oder spätere Aufgaben |
-| `Active Work` | laufende Arbeit |
-| `Review Queue` | alles, was Feedback braucht |
-| `Shipped` | abgeschlossene Arbeit |
-| `My Items` | persönliche Arbeitsfläche |
+| View           | Zweck                            |
+| :------------- | :------------------------------- |
+| `Backlog`      | ungeplante oder spätere Aufgaben |
+| `Active Work`  | laufende Arbeit                  |
+| `Review Queue` | alles, was Feedback braucht      |
+| `Shipped`      | abgeschlossene Arbeit            |
+| `My Items`     | persönliche Arbeitsfläche        |
 
 ---
 

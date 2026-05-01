@@ -3,6 +3,7 @@
 > [!IMPORTANT]
 > **CRITICAL SPA MODE RULE — NEVER FORGET**
 > Cloudflare Pages activates SPA mode automatically when **NO** `404.html` exists in build output.
+>
 > - ✅ **SPA active** (NO 404.html): All routes handled by index.html → HTTP **200**
 > - ❌ **SPA inactive** (404.html exists): Normal 404 behavior → HTTP **404**
 
@@ -28,14 +29,14 @@
 
 All 6 authority pages on `opensin.ai` return **HTTP 404**:
 
-| Page | Was | Now |
-|:---|:---:|:---:|
-| `/ai-agents` | ❌ 404 | ✅ 200 |
-| `/a2a-protocol` | ❌ 404 | ✅ 200 |
+| Page                         |  Was   |  Now   |
+| :--------------------------- | :----: | :----: |
+| `/ai-agents`                 | ❌ 404 | ✅ 200 |
+| `/a2a-protocol`              | ❌ 404 | ✅ 200 |
 | `/multi-agent-orchestration` | ❌ 404 | ✅ 200 |
-| `/autonomous-ai-agents` | ❌ 404 | ✅ 200 |
-| `/openclaw-alternative` | ❌ 404 | ✅ 200 |
-| `/claude-code-alternative` | ❌ 404 | ✅ 200 |
+| `/autonomous-ai-agents`      | ❌ 404 | ✅ 200 |
+| `/openclaw-alternative`      | ❌ 404 | ✅ 200 |
+| `/claude-code-alternative`   | ❌ 404 | ✅ 200 |
 
 > [!NOTE]
 > The project is **NOT Git-connected**. Cloudflare Pages shows `Git Provider: "No"`. Git pushes do **NOT** trigger deployments.
@@ -43,6 +44,7 @@ All 6 authority pages on `opensin.ai` return **HTTP 404**:
 ---
 
 <a name="root-cause"></a>
+
 ## Root Cause
 
 **Creating `public/404.html` DISABLES Cloudflare Pages SPA mode.**
@@ -52,6 +54,7 @@ When a `404.html` exists in the build output, Cloudflare Pages uses **normal 404
 ---
 
 <a name="the-fix"></a>
+
 ## The Fix
 
 > [!WARNING]
@@ -65,6 +68,7 @@ When a `404.html` exists in the build output, Cloudflare Pages uses **normal 404
 ---
 
 <a name="deploy"></a>
+
 ## How to Deploy
 
 The `opensin-website` project is **NOT connected to Git**. Use wrangler CLI for manual deployment:
@@ -82,14 +86,15 @@ CLOUDFLARE_API_TOKEN=your_token wrangler pages deploy . --project-name=opensin-w
 ---
 
 <a name="common-mistakes"></a>
+
 ## Common Mistakes — NEVER DO THESE
 
-| Mistake | Result | Status |
-|:---|:---|:---:|
-| Creating `public/404.html` | ❌ DISABLES SPA mode, ALL routes return 404 | ✅ Avoid |
-| Adding `_routes` or `_redirects` | ⚠️ Not needed when SPA mode is active | ✅ Avoid |
-| Using `npm` instead of `bun` | ❌ Builds get OOM killed on Mac | ✅ Use bun |
-| Git push expecting deployment | ❌ Project is NOT Git-connected | ✅ Use wrangler |
+| Mistake                          | Result                                      |     Status      |
+| :------------------------------- | :------------------------------------------ | :-------------: |
+| Creating `public/404.html`       | ❌ DISABLES SPA mode, ALL routes return 404 |    ✅ Avoid     |
+| Adding `_routes` or `_redirects` | ⚠️ Not needed when SPA mode is active       |    ✅ Avoid     |
+| Using `npm` instead of `bun`     | ❌ Builds get OOM killed on Mac             |   ✅ Use bun    |
+| Git push expecting deployment    | ❌ Project is NOT Git-connected             | ✅ Use wrangler |
 
 ---
 
@@ -126,15 +131,15 @@ flowchart TB
 
 ## Quick Reference
 
-| Item | Value |
-|:---|:---|
-| **Domain** | `opensin.ai` |
-| **Project** | `opensin-website` |
-| **Git Connected** | ❌ No |
+| Item              | Value                     |
+| :---------------- | :------------------------ |
+| **Domain**        | `opensin.ai`              |
+| **Project**       | `opensin-website`         |
+| **Git Connected** | ❌ No                     |
 | **Deploy Method** | `wrangler pages deploy .` |
-| **Build Output** | `dist/` |
-| **SPA Mode** | ✅ Active (no 404.html) |
-| **Framework** | React + Vite |
+| **Build Output**  | `dist/`                   |
+| **SPA Mode**      | ✅ Active (no 404.html)   |
+| **Framework**     | React + Vite              |
 
 ---
 
@@ -153,7 +158,7 @@ done
 
 ---
 
-*Documentation built with the OpenSIN-AI visual-repo standard.*
+_Documentation built with the OpenSIN-AI visual-repo standard._
 
 ---
 

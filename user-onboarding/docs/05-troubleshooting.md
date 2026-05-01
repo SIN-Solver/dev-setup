@@ -9,6 +9,7 @@
 The service account key was rotated or revoked on Google's side (often because it was exposed in a git commit).
 
 Fix:
+
 1. Login as user: `gcloud auth login --no-launch-browser`
 2. Create new key: `gcloud iam service-accounts keys create /tmp/new-key.json --iam-account=SA_EMAIL`
 3. Replace: `cp /tmp/new-key.json ~/.config/opencode/auth/google/service-account.json`
@@ -17,6 +18,7 @@ Fix:
 **Error: `Project creation failed`**
 
 Google Cloud requires billing to create new projects. Either:
+
 - Enable billing at [console.cloud.google.com/billing](https://console.cloud.google.com/billing)
 - Or use an existing project: `gcloud config set project YOUR_PROJECT`
 
@@ -25,6 +27,7 @@ Google Cloud requires billing to create new projects. Either:
 **Output: `undefined` from run-action**
 
 Wrong action name format. The correct patterns are:
+
 - `sin.passwordmanager.secret.put` (not `set`)
 - `sin.passwordmanager.secret.get` (not `get`)
 - Parameters go at the top level, not nested under `input`
@@ -32,6 +35,7 @@ Wrong action name format. The correct patterns are:
 **Error: `Cannot find module`**
 
 The TypeScript hasn't been built. Run:
+
 ```bash
 cd ~/.config/sin/sin-passwordmanager/build
 npm install && npx tsc
@@ -57,6 +61,7 @@ npm install && npx tsc
 **Can't auto-register (CAPTCHA)**
 
 Some platforms use CAPTCHAs that block automated signup. In this case:
+
 1. Register manually at the platform URL
 2. Copy your API key
 3. Store via: `spm run-action '{"action":"sin.passwordmanager.secret.put","name":"KEY_NAME","value":"your_key"}'`

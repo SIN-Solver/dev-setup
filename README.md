@@ -2,12 +2,14 @@
 
 > **Single source of truth for setting up OpenSIN — developer environments AND end-user first-run.**
 >
-> Renamed focus after April 2026 consolidation: this repo now covers *both* audiences that were previously split across `Infra-SIN-Dev-Setup` and the standalone `OpenSIN-onboarding` repo.
+> Renamed focus after April 2026 consolidation: this repo now covers _both_ audiences that were previously split across `Infra-SIN-Dev-Setup` and the standalone `OpenSIN-onboarding` repo.
 
 ## Two entry points
 
 ### I am a developer — I want to work on OpenSIN code
+
 You are in the right place. Read:
+
 - [macOS-dev-setup.md](./macOS-dev-setup.md)
 - [OCI-dev-setup.md](./OCI-dev-setup.md)
 - [CloudFlare-dev-setup.md](./CloudFlare-dev-setup.md)
@@ -15,6 +17,7 @@ You are in the right place. Read:
 - [opencode-docker-build/](./opencode-docker-build/)
 
 ### I am an end user — I just installed OpenSIN and want it to work
+
 See [`user-onboarding/`](./user-onboarding/). It contains the autonomous first-run scripts that set up:
 
 1. A2A-SIN-Passwordmanager (Google Cloud Secrets backend)
@@ -114,11 +117,11 @@ Full ownership map: [`OpenSIN-overview/docs/CANONICAL-REPOS.md`](https://github.
 
 Dieses Repository dokumentiert und automatisiert das komplette OpenSIN-AI Development-Environment Setup. Es führt dich durch:
 
-| Bereich | Beschreibung |
-|:---|:---|
-| **Oracle Cloud Infrastructure** | Kostenlose A1.Flex VM (4 OCPUs, 24 GB RAM) mit n8n und allen A2A Services |
-| **macOS Development Environment** | Homebrew, Git, Node.js, Bun, Python, VS Code — richtig konfiguriert |
-| **OpenCode CLI Stack** | Der komplette upgraded-opencode-stack mit allen Skills, Plugins und Agents |
+| Bereich                           | Beschreibung                                                               |
+| :-------------------------------- | :------------------------------------------------------------------------- |
+| **Oracle Cloud Infrastructure**   | Kostenlose A1.Flex VM (4 OCPUs, 24 GB RAM) mit n8n und allen A2A Services  |
+| **macOS Development Environment** | Homebrew, Git, Node.js, Bun, Python, VS Code — richtig konfiguriert        |
+| **OpenCode CLI Stack**            | Der komplette upgraded-opencode-stack mit allen Skills, Plugins und Agents |
 
 **Kein manuelles Setup mehr** — folge den Anleitungen und dein System ist in 30 Minuten einsatzbereit.
 
@@ -129,6 +132,7 @@ Dieses Repository dokumentiert und automatisiert das komplette OpenSIN-AI Develo
 ## Setup Guide
 
 ### 1. Oracle Cloud Account + VM erstellen → **[OCI-dev-setup.md](./OCI-dev-setup.md)** — Schritt-für-Schritt Anleitung für:
+
 - Oracle Cloud Free Tier Account anlegen
 - A1.Flex Always-Free VM erstellen (4 OCPUs, 24 GB RAM)
 - SSH Zugang einrichten
@@ -138,6 +142,7 @@ Dieses Repository dokumentiert und automatisiert das komplette OpenSIN-AI Develo
 > Frankfurt (eu-frankfurt-1) hat 3 Availability Domains — wenn AD1 voll ist, probiere AD2 oder AD3. Alternativ: PAYGO Account erstellen (bleibt innerhalb Always-Free Limits, $300 Credits).
 
 ### 2. macOS Development Environment → **[macOS-dev-setup.md](./macOS-dev-setup.md)** — Installation von:
+
 - Homebrew (Paketmanager)
 - Git (Versionskontrolle)
 - Node.js + Bun (JavaScript Runtime — NICHT npm!)
@@ -176,27 +181,29 @@ sin-sync
 
 ## Features
 
-| Capability | Description | Status |
-|:---|:---|:---:|
-| **Oracle Cloud A1.Flex** | 4 OCPUs, 24 GB RAM, Always-Free | ✅ |
-| **n8n Workflow Engine** | Workflow Automation auf OCI VM | ✅ |
-| **A2A-SIN-GitHub-Action** | CI/CD-ähnliche Automation (KEINE GitHub Actions!) | ✅ |
-| **Box.com Storage** | Unlimited Cloud Storage für Logs/Screenshots | ✅ |
-| **OpenCode CLI** | Mit 44 Skills, 4 Plugins, 21 Agents | ✅ |
-| **sin-sync** | Config-Sync Mac → OCI VM → HF VMs | ✅ |
-| **Zentrales A2A Team Register** | 17 Teams klassifiziert in oh-my-sin.json | ✅ |
-| **Budget Alerts** | OCI Cost Monitoring (Pflicht!) | ✅ |
+| Capability                      | Description                                       | Status |
+| :------------------------------ | :------------------------------------------------ | :----: |
+| **Oracle Cloud A1.Flex**        | 4 OCPUs, 24 GB RAM, Always-Free                   |   ✅   |
+| **n8n Workflow Engine**         | Workflow Automation auf OCI VM                    |   ✅   |
+| **A2A-SIN-GitHub-Action**       | CI/CD-ähnliche Automation (KEINE GitHub Actions!) |   ✅   |
+| **Box.com Storage**             | Unlimited Cloud Storage für Logs/Screenshots      |   ✅   |
+| **OpenCode CLI**                | Mit 44 Skills, 4 Plugins, 21 Agents               |   ✅   |
+| **sin-sync**                    | Config-Sync Mac → OCI VM → HF VMs                 |   ✅   |
+| **Zentrales A2A Team Register** | 17 Teams klassifiziert in oh-my-sin.json          |   ✅   |
+| **Budget Alerts**               | OCI Cost Monitoring (Pflicht!)                    |   ✅   |
 
 <details>
 <summary>Vollständige Tool-Liste — Alle Komponenten</summary>
 
 ### OCI VM Services
+
 - **n8n** (Port 5678) — Workflow Automation
 - **A2A-SIN-GitHub-Action** — GitHub Integration
 - **A2A-SIN-Box-Storage** (Port 3000) — Cloud Storage
 - **sin-supabase** — Datenbank (200 GB Storage)
 
 ### OpenCode Stack
+
 - **44 Custom Skills** — A2A Agent Builder, Deploy, Debug, Browser Automation
 - **4 Plugins** — Antigravity OAuth, Qwen OAuth, OpenRouter Proxy
 - **27 MCP Servers** — sin-sync, sin-n8n, sin-telegrambot, sin-rotate, sin-health, etc.
@@ -273,25 +280,26 @@ flowchart TB
 
 ## Enthaltene Repos
 
-| Repository | Beschreibung | Link |
-|:---|:---|:---|
-| **Infra-SIN-Dev-Setup** | Dieses Repo — Setup-Dokumentation | [GitHub](https://github.com/OpenSIN-AI/Infra-SIN-Dev-Setup) |
+| Repository                  | Beschreibung                                                      | Link                                                        |
+| :-------------------------- | :---------------------------------------------------------------- | :---------------------------------------------------------- |
+| **Infra-SIN-Dev-Setup**     | Dieses Repo — Setup-Dokumentation                                 | [GitHub](https://github.com/OpenSIN-AI/Infra-SIN-Dev-Setup) |
 | **upgraded-opencode-stack** | Kompletter OpenCode CLI Stack — Skills, Plugins, Agents, Commands | [GitHub](https://github.com/Delqhi/upgraded-opencode-stack) |
-| **oh-my-sin.json** | Zentrales A2A Team Register — 17 Teams klassifiziert | Im upgraded-opencode-stack |
+| **oh-my-sin.json**          | Zentrales A2A Team Register — 17 Teams klassifiziert              | Im upgraded-opencode-stack                                  |
 
 <details>
 <summary>upgraded-opencode-stack — Enthaltene Komponenten</summary>
 
-| Komponente | Anzahl | Details |
-|:---|:---:|:---|
-| **Skills** | 44 | create-a2a, create-a2a-team, enterprise-deep-debug, browser-crashtest-lab, etc. |
-| **Plugins** | 4 | opencode-antigravity-auth, opencode-qwen-auth, opencode-openrouter-auth, etc. |
-| **MCP Servers** | 27 | sin-sync, sin-n8n, sin-telegrambot, sin-rotate, sin-health, etc. |
-| **Custom Commands** | 12 | omoc-jam, omoc-max, sin-terminal-orchestrate, sin-zeus-bootstrap, etc. |
-| **A2A Agents** | 21 | SIN-Zeus, SIN-Simone-MCP, A2A-SIN-Frontend, Backend, Fullstack, etc. |
-| **Provider Configs** | 5 | Google Antigravity, OpenAI, NVIDIA NIM, OpenRouter, Qwen |
+| Komponente           | Anzahl | Details                                                                         |
+| :------------------- | :----: | :------------------------------------------------------------------------------ |
+| **Skills**           |   44   | create-a2a, create-a2a-team, enterprise-deep-debug, browser-crashtest-lab, etc. |
+| **Plugins**          |   4    | opencode-antigravity-auth, opencode-qwen-auth, opencode-openrouter-auth, etc.   |
+| **MCP Servers**      |   27   | sin-sync, sin-n8n, sin-telegrambot, sin-rotate, sin-health, etc.                |
+| **Custom Commands**  |   12   | omoc-jam, omoc-max, sin-terminal-orchestrate, sin-zeus-bootstrap, etc.          |
+| **A2A Agents**       |   21   | SIN-Zeus, SIN-Simone-MCP, A2A-SIN-Frontend, Backend, Fullstack, etc.            |
+| **Provider Configs** |   5    | Google Antigravity, OpenAI, NVIDIA NIM, OpenRouter, Qwen                        |
 
 **Wichtigste Features:**
+
 - **Global-Brain (DPMA v4)** — Multi-Project Memory
 - **Local-Brain / GraphRAG** — Projekt-basiertes Plan-Gedächtnis
 - **OMOC Swarm** — 5-Agenten-Schwarm für komplexe Tasks
@@ -305,11 +313,11 @@ flowchart TB
 
 ## Related
 
-| Repository | Beschreibung |
-|:---|:---|
-| **[upgraded-opencode-stack](https://github.com/Delqhi/upgraded-opencode-stack)** | Der vollständige OpenCode CLI Stack — clone und installieren für sofortige A2A Agent Productivity |
+| Repository                                                                                       | Beschreibung                                                                                                                                                                            |
+| :----------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[upgraded-opencode-stack](https://github.com/Delqhi/upgraded-opencode-stack)**                 | Der vollständige OpenCode CLI Stack — clone und installieren für sofortige A2A Agent Productivity                                                                                       |
 | **[oh-my-sin.json](https://github.com/Delqhi/upgraded-opencode-stack/blob/main/oh-my-sin.json)** | Zentrales A2A Team Register — 17 Teams (Coding, Worker, Infrastructure, Google Apps, Apple Apps, Social, Messaging, Forum, Legal, Commerce, Community, Research, Media, CyberSec, etc.) |
-| **[OpenSIN-AI](https://opensin.ai)** | Das OpenSIN-AI Ökosystem — Enterprise AI Agents die autonom arbeiten |
+| **[OpenSIN-AI](https://opensin.ai)**                                                             | Das OpenSIN-AI Ökosystem — Enterprise AI Agents die autonom arbeiten                                                                                                                    |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -317,14 +325,14 @@ flowchart TB
 
 ## Troubleshooting
 
-| Problem | Lösung |
-|:---|:---|
-| OCI A1.Flex "out of capacity" | Alle 3 ADs in Frankfurt probieren (AD1→AD2→AD3). Alternativ: PAYGO Account erstellen — bleibt kostenlos, nur $100 Hold. |
-| macOS: `brew: command not found` | `eval "$(brew shellenv)"` ausführen oder Terminal neu starten |
-| GitHub Push verlangt Passwort | SSH Key generieren und in GitHub Settings hinzufügen: `ssh-keygen -t ed25519 -C "email"` |
-| n8n startet nicht auf OCI | `sudo systemctl status n8n` prüfen, Logs: `sudo journalctl -u n8n -f` |
-| sin-sync schlägt fehl | OCI VM erreichbar? `ping 92.5.60.87`. SSH Key im authorized_keys? |
-| Box.com Upload fehlgeschlagen | `BOX_STORAGE_API_KEY` in `.env` gesetzt? Service erreichbar? `curl http://room-09-box-storage:3000/health` |
+| Problem                          | Lösung                                                                                                                  |
+| :------------------------------- | :---------------------------------------------------------------------------------------------------------------------- |
+| OCI A1.Flex "out of capacity"    | Alle 3 ADs in Frankfurt probieren (AD1→AD2→AD3). Alternativ: PAYGO Account erstellen — bleibt kostenlos, nur $100 Hold. |
+| macOS: `brew: command not found` | `eval "$(brew shellenv)"` ausführen oder Terminal neu starten                                                           |
+| GitHub Push verlangt Passwort    | SSH Key generieren und in GitHub Settings hinzufügen: `ssh-keygen -t ed25519 -C "email"`                                |
+| n8n startet nicht auf OCI        | `sudo systemctl status n8n` prüfen, Logs: `sudo journalctl -u n8n -f`                                                   |
+| sin-sync schlägt fehl            | OCI VM erreichbar? `ping 92.5.60.87`. SSH Key im authorized_keys?                                                       |
+| Box.com Upload fehlgeschlagen    | `BOX_STORAGE_API_KEY` in `.env` gesetzt? Service erreichbar? `curl http://room-09-box-storage:3000/health`              |
 
 > [!WARNING]
 > Bei OOM-Kill (Process killed) auf macOS: **NIEMALS npm nutzen!** Immer `bun install` — npm frisst 4-6 GB RAM.

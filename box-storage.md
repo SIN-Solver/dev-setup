@@ -25,12 +25,12 @@
 
 ### Use Cases — Wer braucht was?
 
-| Wer | Problem | Lösung |
-|:---|:---|:---|
-| **Developer** | Logs von verschiedenen VMs werden nicht zentralisiert | Agenten laden automatisch hoch → alle Logs an einem Ort |
-| **DevOps** | Screenshots nach Browser-Crashs verloren | Automatischer Box-Upload bei jedem Step |
-| **Marketing** | Content-Dateien für verschiedene Agenten freigeben | Public Folder mit "Jeder mit Link" → sofortiger Zugriff |
-| **Alle Team-Members** | Speicherplatz auf dem Mac begrenzt | Box.com als zentraler Cloud-Speicher (unbegrenzt skalierbar) |
+| Wer                   | Problem                                               | Lösung                                                       |
+| :-------------------- | :---------------------------------------------------- | :----------------------------------------------------------- |
+| **Developer**         | Logs von verschiedenen VMs werden nicht zentralisiert | Agenten laden automatisch hoch → alle Logs an einem Ort      |
+| **DevOps**            | Screenshots nach Browser-Crashs verloren              | Automatischer Box-Upload bei jedem Step                      |
+| **Marketing**         | Content-Dateien für verschiedene Agenten freigeben    | Public Folder mit "Jeder mit Link" → sofortiger Zugriff      |
+| **Alle Team-Members** | Speicherplatz auf dem Mac begrenzt                    | Box.com als zentraler Cloud-Speicher (unbegrenzt skalierbar) |
 
 ### Architektur — So funktioniert's
 
@@ -67,6 +67,7 @@ flowchart TB
 ```
 
 **Erklärung:**
+
 - **Public Folder** = Für Dateien, die ALLE sehen dürfen (z.B. fertige Reports)
 - **Cache Folder** = Für temporäre Dateien (Logs, Screenshots, Debug-Artefakte)
 
@@ -111,10 +112,10 @@ Token und Folder-IDs eintragen
 
 ### Verifizierte IDs für dieses Konto
 
-| Ordner | Numerische ID | Share-URL (nur für Menschen!) |
-|:---|:---|:---|
+| Ordner     | Numerische ID  | Share-URL (nur für Menschen!)                          |
+| :--------- | :------------- | :----------------------------------------------------- |
 | **Public** | `376915767916` | https://app.box.com/s/mvurec77pppyqhxb09z1dwcf8bz4o7eu |
-| **Cache** | `376701205578` | https://app.box.com/s/9s5htoefw1ux9ajaqj656v9a02h7z7x1 |
+| **Cache**  | `376701205578` | https://app.box.com/s/9s5htoefw1ux9ajaqj656v9a02h7z7x1 |
 
 > [!WARNING]
 > Wenn du die Share-URL in der API nutzt → **404 Error**! Share-Links sind nur für den Browser, nicht für API-Calls.
@@ -149,6 +150,7 @@ Suche nach `"id": "1234567890"` in der Antwort — das ist deine numerische Fold
 Gehe zu: **https://account.box.com/developers/console**
 
 Wähle deine App aus (z.B. `OpenSIN`).
+
 </details>
 
 <details open>
@@ -157,11 +159,13 @@ Wähle deine App aus (z.B. `OpenSIN`).
 Scrolle nach unten zum Bereich **"CORS-Domänen"** (oder "Zulässige Domänen").
 
 Trage ein:
+
 ```
 http://localhost:3000, http://room-09-box-storage:3000
 ```
 
 Klicke auf **Änderungen speichern**.
+
 </details>
 
 <details>
@@ -174,6 +178,7 @@ curl -s -X GET "https://api.box.com/2.0/users/me" \
 ```
 
 Wenn du eine JSON-Antwort mit deinem Namen siehst → CORS funktioniert!
+
 </details>
 
 > [!NOTE]
@@ -238,11 +243,11 @@ docker ps | grep box-storage
 
 **Mögliche Ursachen:**
 
-| Ursache | Prüfung | Lösung |
-|:---|:---|:---|
-| CORS Block | Browser Console öffnen → CORS Fehler? | Domain in Box Developer Console eintragen |
-| Token abgelaufen | Token älter als 60 Minuten? | Neuen Developer Token generieren |
-| Falsche Berechtigungen | Ordner für App freigegeben? | In Box.com: Ordner → Teilen → App hinzufügen |
+| Ursache                | Prüfung                               | Lösung                                       |
+| :--------------------- | :------------------------------------ | :------------------------------------------- |
+| CORS Block             | Browser Console öffnen → CORS Fehler? | Domain in Box Developer Console eintragen    |
+| Token abgelaufen       | Token älter als 60 Minuten?           | Neuen Developer Token generieren             |
+| Falsche Berechtigungen | Ordner für App freigegeben?           | In Box.com: Ordner → Teilen → App hinzufügen |
 
 ---
 
@@ -261,6 +266,7 @@ docker ps | grep box-storage
 
 > [!NOTE]
 > Mit JWT musst du dich nie wieder um Token-Refresh kümmern — der Service generiert automatisch neue Tokens.
+
 </details>
 
 ---
@@ -306,10 +312,10 @@ curl -s -X POST "https://upload.box.com/api/2.0/files/content" \
 
 ## Nützliche Links
 
-| Ressource | URL |
-|:---|:---|
-| Box Developer Console | https://account.box.com/developers/console |
-| Box API Dokumentation | https://developer.box.com/reference/ |
+| Ressource                | URL                                               |
+| :----------------------- | :------------------------------------------------ |
+| Box Developer Console    | https://account.box.com/developers/console        |
+| Box API Dokumentation    | https://developer.box.com/reference/              |
 | A2A-SIN-Box-Storage Repo | https://github.com/OpenSIN-AI/A2A-SIN-Box-Storage |
 
 ---

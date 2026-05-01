@@ -109,16 +109,20 @@ Ein guter PR erklärt:
 
 ```md
 ## What
+
 Kurze Zusammenfassung der Änderung
 
 ## Why
+
 Warum diese Änderung wichtig ist
 
 ## Scope
+
 - was enthalten ist
 - was bewusst nicht enthalten ist
 
 ## Validation
+
 - getestet durch ...
 - geprüft auf ...
 ```
@@ -170,12 +174,12 @@ Gutes Feedback ist:
 
 Die vier Bausteine haben unterschiedliche Rollen:
 
-| Werkzeug | Aufgabe |
-| :--- | :--- |
-| **Discussions** | Denken, Fragen, Ideen, Klärung |
-| **Issues** | konkrete verfolgte Arbeit |
-| **Projects** | Priorisierung und Sicht auf den Gesamtfluss |
-| **Pull Requests** | Review und Merge von Änderungen |
+| Werkzeug          | Aufgabe                                     |
+| :---------------- | :------------------------------------------ |
+| **Discussions**   | Denken, Fragen, Ideen, Klärung              |
+| **Issues**        | konkrete verfolgte Arbeit                   |
+| **Projects**      | Priorisierung und Sicht auf den Gesamtfluss |
+| **Pull Requests** | Review und Merge von Änderungen             |
 
 So entsteht ein sauberer Fluss:
 
